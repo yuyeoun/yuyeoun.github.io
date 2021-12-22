@@ -14259,7 +14259,34 @@ a.anchor-link {
 
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="&#45936;&#51060;&#53552;-&#48520;&#47084;&#50724;&#44592;">&#45936;&#51060;&#53552; &#48520;&#47084;&#50724;&#44592;<a class="anchor-link" href="#&#45936;&#51060;&#53552;-&#48520;&#47084;&#50724;&#44592;">&#182;</a></h2>
+<h2 id="&#45216;&#50472;&#50752;-&#51068;&#51088;&#48324;-&#53945;&#49457;&#51012;-&#44256;&#47140;&#54620;-&#49436;&#50872;&#49884;-&#44277;&#44277;&#51088;&#51204;&#44144;-&#49688;&#50836;-&#50696;&#52769;">&#45216;&#50472;&#50752; &#51068;&#51088;&#48324; &#53945;&#49457;&#51012; &#44256;&#47140;&#54620; &#49436;&#50872;&#49884; &#44277;&#44277;&#51088;&#51204;&#44144; &#49688;&#50836; &#50696;&#52769;<a class="anchor-link" href="#&#45216;&#50472;&#50752;-&#51068;&#51088;&#48324;-&#53945;&#49457;&#51012;-&#44256;&#47140;&#54620;-&#49436;&#50872;&#49884;-&#44277;&#44277;&#51088;&#51204;&#44144;-&#49688;&#50836;-&#50696;&#52769;">&#182;</a></h2>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="&#44397;&#47928;-&#50836;&#50557;">&#44397;&#47928; &#50836;&#50557;<a class="anchor-link" href="#&#44397;&#47928;-&#50836;&#50557;">&#182;</a></h3>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<ul>
+<li>서울시 공공자전거 사용량은 지속적으로 증가하고 있다. 일명 ‘따릉이’라 불리는 이 자전거는 서울시에서 6년째 운영 중으로 2021년 9월 기준으로 누적 이용 건수가 약 8,364만건, 누적회원 325만명으로 서울시민에게 유용한 이동수단으로 자리잡고 있다.<br>
+하지만, 이 사업은 적자 누적으로 서울시에는 큰 부담이 되고 있으며 최근에는 민간 사업으로의 전환 이슈가 제기되고 있다. 공공 서비스가 민간 서비스와 경쟁해야 하는 상황이지만 교통 복지와 환경 정책을 고려할 때 공공자전거 사업 확대는 바람직하다.<br>
+이에 본 연구에서는 월별로 집계된 공공자전거 대여 자료와 기상청 날씨 자료를 가지고 날씨 및 일자별 특성을 분석하여 일자별 자전거 재배치에 대한 예측 정보를 제공하고자 하였다.<br>
+<br> 연구 주제 분석을 위해서는 시간 단위로 합산된 월별 공공자전거 대여갯수와 일별 날씨 정보가 필요하다. 공공자전거 데이터는 서울시에서 운영하는 공공데이터 포털인 서울 열린데이터 광장(<a href="https://data.seoul.go.kr)의">https://data.seoul.go.kr)의</a> 공공자전거 대여정보 중 2019년 1월부터 3월까지 CSV 형태의 파일을 활용했다. 총 2년간의 데이터를 분석할 계획이었으나 2020년 1월부터 시작된 COVID-19의 특수 상황을 감안할 필요가 있어 2019년 데이터를 기본 자료로 삼았다.
+날씨 정보는 기상자료개방포털(<a href="https://data.kma.go.kr/)에서">https://data.kma.go.kr/)에서</a> 제공하는 서울지역 기상 관측데이터의 일별/시간별 기상 정보를 활용했으며, 날씨를 Labeling하기 위해 운량 정보가 있는 기상청 날씨누리(<a href="https://www.kma.go.kr/)의">https://www.kma.go.kr/)의</a> 서울지역 날씨(운량) 정보를 이용했다.<br>
+<br> 본 연구에서는 Random Forest Regression 알고리즘을 적용한다. 자전거 대여 특성들을 Feature로 정의하고 매월 1일부터 19일까지 데이터를 훈련 데이터로, 20일부터 30일까지는 테스트 데이터로 한다.
+Feature로는 날씨 요소인 계절, 날씨, 온도, 풍속, 습도를 넣고, 일자별 특징 요소인 휴일 여부, 근무일 여부, 월, 시간, 요일을 추가한다.
+성능 평가를 위해 RMSLE (Root Mean Squared Log Error)을 적용했으며 이는 함수로 별도로 구현했다. 예측 검증은 교차 검증을 사용했다.<br>
+<br> 연구 결과, 성능 평가 지표를 반영한 교차 검증 지표가 0.43073으로 그리 높게 나오지는 않았다. 예측한 수치와 실제 테스트 데이터 값을 비교한 결과, 대여갯수 자체는 전체적으로 적게 잡히는 편이었으나 실제 데이터가 그리는 대여갯수 패턴은 상당 부분 따라가는 것으로 나타났다. 특히, 피크 타임의 월등히 높은 대여갯수는 예측 데이터에서도 대체로 잘 나타냈다.<br>
+본 연구에서 주요하게 다룰 항목이었던 날씨적 특성은 예측값을 판단하기 어려웠다. 1월부터 3월은 대체로 맑은 날씨가 많고, 추운 날씨가 이어지는 편이다. 또한 3개월 밖에 훈련 데이터가 제공되지 않아서 계절적 특성이나 날씨의 항목을 학습하는데 한계가 있었던 것으로 보인다.</li>
+</ul>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="&#45936;&#51060;&#53552;-&#48520;&#47084;&#50724;&#44592;">&#45936;&#51060;&#53552; &#48520;&#47084;&#50724;&#44592;<a class="anchor-link" href="#&#45936;&#51060;&#53552;-&#48520;&#47084;&#50724;&#44592;">&#182;</a></h3>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
@@ -14719,7 +14746,7 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Visualization">Visualization<a class="anchor-link" href="#Visualization">&#182;</a></h2>
+<h3 id="Visualization">Visualization<a class="anchor-link" href="#Visualization">&#182;</a></h3>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
@@ -16334,7 +16361,7 @@ Name: count, dtype: int64</pre>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="&#49457;&#45733;-&#54217;&#44032;,-&#50696;&#52769;-&#47784;&#45944;-&#44160;&#51613;">&#49457;&#45733; &#54217;&#44032;, &#50696;&#52769; &#47784;&#45944; &#44160;&#51613;<a class="anchor-link" href="#&#49457;&#45733;-&#54217;&#44032;,-&#50696;&#52769;-&#47784;&#45944;-&#44160;&#51613;">&#182;</a></h2>
+<h3 id="&#49457;&#45733;-&#54217;&#44032;,-&#50696;&#52769;-&#47784;&#45944;-&#44160;&#51613;">&#49457;&#45733; &#54217;&#44032;, &#50696;&#52769; &#47784;&#45944; &#44160;&#51613;<a class="anchor-link" href="#&#49457;&#45733;-&#54217;&#44032;,-&#50696;&#52769;-&#47784;&#45944;-&#44160;&#51613;">&#182;</a></h3>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
@@ -16476,7 +16503,7 @@ Name: count, dtype: int64</pre>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="&#50696;&#52769;">&#50696;&#52769;<a class="anchor-link" href="#&#50696;&#52769;">&#182;</a></h2>
+<h3 id="&#50696;&#52769;">&#50696;&#52769;<a class="anchor-link" href="#&#50696;&#52769;">&#182;</a></h3>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
@@ -16745,7 +16772,7 @@ Name: count, dtype: int64</pre>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="&#44208;&#44284;&#44050;-&#51200;&#51109;">&#44208;&#44284;&#44050; &#51200;&#51109;<a class="anchor-link" href="#&#44208;&#44284;&#44050;-&#51200;&#51109;">&#182;</a></h2>
+<h3 id="&#44208;&#44284;&#44050;-&#51200;&#51109;">&#44208;&#44284;&#44050; &#51200;&#51109;<a class="anchor-link" href="#&#44208;&#44284;&#44050;-&#51200;&#51109;">&#182;</a></h3>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
